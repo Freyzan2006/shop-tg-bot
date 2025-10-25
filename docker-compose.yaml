@@ -1,0 +1,25 @@
+services:
+  bot: 
+    build: .
+    container_name: shop-tg
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    networks: 
+      - app-network
+  mongo:
+    image: mongo:8
+    container_name: shop-tg-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: shop-tg-bot
+      MONGO_INITDB_ROOT_PASSWORD: shop-tg-bot
+    ports:
+      - "27017:27017"
+    networks: 
+      - app-network
+      
+networks:
+  app-network:

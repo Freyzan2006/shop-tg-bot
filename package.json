@@ -1,0 +1,32 @@
+{
+  "name": "shop-tg-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "dev": "tsx watch src/index.ts",
+    "build": "node esbuild.config.js",
+    "build:dev": "node esbuild.config.js --watch",
+    "build:prod": "node esbuild.config.js --minify",
+    "build:analyze": "node esbuild.config.js --minify && node -e \"console.log(require('./build/meta.json'))\"",
+    "start:prod": "node build/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@grammyjs/hydrate": "^1.6.0",
+    "dotenv": "^16.6.1",
+    "grammy": "^1.38.3",
+    "mongoose": "^8.19.2"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^24.9.1",
+    "esbuild": "^0.25.11",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
